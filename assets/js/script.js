@@ -1,3 +1,7 @@
+// because bootstrap doesn't have any special variables that webpack doesn't understand. 
+// require bootstrap.
+require('bootstrap');
+
 $(document).ready(function() {
   function createEl(htmlString, attrs, ...children) {
     if (typeof htmlString !== "string") {
