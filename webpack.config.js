@@ -2,7 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 
 // BundleAnaylyzerPlugin will analyze our bundle sizes and see how much Javascript is being processed in the browser.
-const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 module.exports = {
 
@@ -31,7 +31,7 @@ module.exports = {
         rules: [
             {
                 // test any file with the extension .jpg 
-                test: /\.jpg$/i,
+                test: /\.(png|jpe?g|gif)$/i,
                 // actual loader is implemented. target carousel images to optimize
                 use: [
                     {   
@@ -67,7 +67,7 @@ module.exports = {
             jQuery: 'jquery'
         }),
         new BundleAnalyzerPlugin({
-            analyzerMode: "static", // the report outputs to an HTML filein the dist folder.
+            analyzerMode: "static", // the report outputs to an HTML file in the dist folder.
         })
     ],
 
