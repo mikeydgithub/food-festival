@@ -2,6 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const WebpackPwaManifest = require("webpack-pwa-manifest");
 
+
 // BundleAnaylyzerPlugin will analyze our bundle sizes and see how much Javascript is being processed in the browser.
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
@@ -24,6 +25,14 @@ module.exports = {
         filename: "[name].bundle.js",
         // path.resolve takes 2 properties
         path: __dirname + "/dist"
+    },
+
+    devServer: {
+        // contentBase: path.join(__dirname, 'output'),
+        compress: true,
+        port: 8080,
+        historyApiFallback: true,
+        // publicPath: '/'
     },
 
     // in order to optimize the images, we will need to emite our images to our output path.
@@ -89,6 +98,6 @@ module.exports = {
     ],
 
     //mode
-    mode: 'development'
+    mode: 'development',
 
 };
